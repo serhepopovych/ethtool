@@ -1290,6 +1290,14 @@ ixgbe_dump_regs(struct ethtool_drvinfo *info maybe_unused,
 		fprintf(stdout,
 			"0x08800: SECRXSTAT   (Security Rx Status)             0x%08X\n",
 			regs_buff[1144]);
+
+	if (mac_type != ixgbe_mac_82598EB && regs_buff_len > 1145) {
+		fprintf(stdout,
+			"0x04A80: DMATXCTL    (DMA Tx Control)                 0x%08X\n",
+			regs_buff[1145]);
+		fprintf(stdout,
+			"0x05078: EXVET       (Extended VLAN Ether Type)       0x%08X\n",
+			regs_buff[1146]);
 	}
 
 	return 0;
